@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kason私人生活指南</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Kason生活指南</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="items.html">物件名目</a></li>
+                    <li><a href="storage.html">物件收纳</a></li>
+                    <li><a href="recipes.html">食谱</a></li>
+                    <li><a href="commute.html">通勤</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 搜索结果模态框 -->
+    <div id="search-results-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>搜索结果</h3>
+            <div id="search-results-list"></div>
+        </div>
+    </div>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>欢迎来到 Kason 私人生活指南</h1>
+            <p>这里有关于衣物、厨具、清洁用品等各类物品的使用指南，以及收纳技巧、美味食谱和通勤建议，让你的生活更加便捷、有序和美好。</p>
+            
+            <a href="#categories" class="explore-guide">
+                <div class="explore-content">
+                    <h2>探索指南</h2>
+                    <p>点击这里探索生活指南分类，发现更多实用的生活技巧和物品信息。</p>
+                    <div class="explore-arrow">↓</div>
+                </div>
+            </a>
+            
+            <!-- 搜索框 -->
+            <div class="search-container">
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="搜索内容...">
+                    <button type="submit">搜索</button>
+                </form>
+                <div id="search-suggestions" class="search-suggestions"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类区域 -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">生活指南分类</h2>
+            <div class="categories-grid">
+                <!-- 物件名目 -->
+                <div class="category-card fade-in">
+                    <div class="category-image" style="background-image: url('images/物件名目背景.jpg');"></div>
+                    <div class="category-content">
+                        <h3>物件名目</h3>
+                        <p>详细介绍各类生活用品的名称、用途和特点，帮助你更好地了解和使用它们。</p>
+                        <a href="items.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                
+                <!-- 物件收纳 -->
+                <div class="category-card fade-in">
+                    <div class="category-image" style="background-image: url('images/物件收纳背景.avif');"></div>
+                    <div class="category-content">
+                        <h3>物件收纳</h3>
+                        <p>提供各类物品的收纳技巧和方法，让你的生活空间更加整洁有序。</p>
+                        <a href="storage.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                
+                <!-- 食谱 -->
+                <div class="category-card fade-in">
+                    <div class="category-image" style="background-image: url('images/食谱背景.png');"></div>
+                    <div class="category-content">
+                        <h3>食谱</h3>
+                        <p>记录Kason做过的菜以及想做的菜，按家常菜、快手菜、下饭菜、早餐等分类整理，做过的菜会将菜名点亮。</p>
+                        <a href="recipes.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                
+                <!-- 通勤 -->
+                <div class="category-card fade-in">
+                    <div class="category-image" style="background-image: url('images/通勤背景.jpg');"></div>
+                    <div class="category-content">
+                        <h3>通勤</h3>
+                        <p>提供通勤准备、交通方式选择和时间利用的技巧，让你的通勤更加高效舒适。</p>
+                        <a href="commute.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="items.html">物件名目</a></li>
+                        <li><a href="storage.html">物件收纳</a></li>
+                        <li><a href="recipes.html">食谱</a></li>
+                        <li><a href="commute.html">通勤</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关于网站</h3>
+                    <p>Kason私人生活指南为私人自用网站，记录了Kason如何在人类世界生存的方法，包括物件信息、食谱整理、通勤建议等各名目，方便Kason找回之前地球online的存档并继续探索，记录生活中的点点滴滴，为Kason在地球online的冒险提供必要的参考和支持。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Kason私人生活指南. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的淡入动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.classList.add('fade-in');
+                }, 100);
+            });
+        });
+    </script>
+
+    <!-- 搜索功能脚本 -->
+    <script>
+        // 搜索数据
+        const searchData = [
+            // 功能块
+            {
+                title: "物件名目",
+                category: "功能块",
+                description: "包含数码类、卧室类、衣物类、厨房类、清洁类、卫浴类等物品信息",
+                link: "items.html"
+            },
+            {
+                title: "数码类",
+                category: "功能块",
+                description: "包含手机、平板、电脑等数码产品信息",
+                link: "items-digital.html"
+            },
+            {
+                title: "卧室类",
+                category: "功能块",
+                description: "包含床上用品、衣柜、床头柜等卧室物品信息",
+                link: "items-bedroom.html"
+            },
+            {
+                title: "衣物类",
+                category: "功能块",
+                description: "包含衣架、洗衣液等衣物相关物品信息",
+                link: "items-clothing.html"
+            },
+            {
+                title: "厨房类",
+                category: "功能块",
+                description: "包含碗碟、电饭煲、调料品等厨房物品信息",
+                link: "items-kitchen.html"
+            },
+            {
+                title: "清洁类",
+                category: "功能块",
+                description: "包含垃圾桶、垃圾袋、拖把等清洁用品信息",
+                link: "items-cleaning.html"
+            },
+            {
+                title: "卫浴类",
+                category: "功能块",
+                description: "包含热水器、花洒、洗护套装等卫浴用品信息",
+                link: "items-bathroom.html"
+            },
+            {
+                title: "食谱",
+                category: "功能块",
+                description: "包含家常菜、快手菜、下饭菜、早餐等各种菜谱",
+                link: "recipes.html"
+            },
+            {
+                title: "家常菜",
+                category: "功能块",
+                description: "包含胡萝卜炒火腿、番茄虾仁滑蛋、可乐鸡翅等家常菜",
+                link: "recipes.html#home-dishes"
+            },
+            {
+                title: "早餐",
+                category: "功能块",
+                description: "包含全麦三明治等早餐菜谱",
+                link: "recipes.html#breakfast"
+            },
+            {
+                title: "物件收纳",
+                category: "功能块",
+                description: "包含衣物收纳、厨房收纳等收纳技巧",
+                link: "storage.html"
+            },
+            {
+                title: "通勤",
+                category: "功能块",
+                description: "包含通勤准备、天气应对等通勤建议",
+                link: "commute.html"
+            },
+            // 食谱
+            {
+                title: "胡萝卜炒火腿",
+                category: "食谱",
+                description: "家常菜，包含胡萝卜、火腿肠、蒜子等食材",
+                link: "recipes.html#home-dishes"
+            },
+            {
+                title: "番茄虾仁滑蛋",
+                category: "食谱",
+                description: "家常菜，包含番茄、鸡蛋、虾仁等食材",
+                link: "recipes.html#home-dishes"
+            },
+            {
+                title: "可乐鸡翅",
+                category: "食谱",
+                description: "家常菜，包含鸡翅、可乐、姜片等食材",
+                link: "recipes.html#home-dishes"
+            },
+            {
+                title: "全麦三明治",
+                category: "食谱",
+                description: "早餐，包含全麦面包、鸡蛋等食材",
+                link: "recipes.html#breakfast"
+            },
+            // 物件名目 - 数码类
+            {
+                title: "手机",
+                category: "物件名目",
+                description: "用于通讯、娱乐和工作的便携式电子设备",
+                link: "items-digital.html"
+            },
+            {
+                title: "平板",
+                category: "物件名目",
+                description: "介于手机和电脑之间的便携式电子设备",
+                link: "items-digital.html"
+            },
+            {
+                title: "电脑",
+                category: "物件名目",
+                description: "用于工作、学习和娱乐的电子设备",
+                link: "items-digital.html"
+            },
+            // 物件名目 - 卧室类
+            {
+                title: "床上用品",
+                category: "物件名目",
+                description: "包括床单、被套、枕套等，用于保持床上清洁和舒适",
+                link: "items-bedroom.html"
+            },
+            {
+                title: "衣柜",
+                category: "物件名目",
+                description: "用于存放衣物，保持衣物整洁有序",
+                link: "items-bedroom.html"
+            },
+            {
+                title: "床头柜",
+                category: "物件名目",
+                description: "放在床头，用于放置台灯、手机等物品",
+                link: "items-bedroom.html"
+            },
+            // 物件名目 - 衣物类
+            {
+                title: "普通衣架",
+                category: "物件名目",
+                description: "塑料衣架，用于悬挂和整理衣物。共有20个，双色各十个",
+                link: "items-clothing.html"
+            },
+            {
+                title: "承重衣架",
+                category: "物件名目",
+                description: "用于悬挂较重的衣物，如外套、大衣等。共有10个",
+                link: "items-clothing.html"
+            },
+            {
+                title: "洗衣液",
+                category: "物件名目",
+                description: "用于清洗衣物，有不同类型适合不同材质",
+                link: "items-clothing.html"
+            },
+            // 物件名目 - 厨房类
+            {
+                title: "碗碟",
+                category: "物件名目",
+                description: "用于盛放食物，有各种材质和样式",
+                link: "items-kitchen.html"
+            },
+            {
+                title: "电饭煲",
+                category: "物件名目",
+                description: "用于煮饭、煮粥等，是厨房必备的电器之一",
+                link: "items-kitchen.html"
+            },
+            {
+                title: "调料品",
+                category: "物件名目",
+                description: "包括玉米淀粉、亨氏番茄沙司、李锦记味极鲜等",
+                link: "items-kitchen.html"
+            },
+            // 物件名目 - 清洁类
+            {
+                title: "垃圾桶",
+                category: "物件名目",
+                description: "2个，一个用于厕所垃圾，一个用于生活垃圾",
+                link: "items-cleaning.html"
+            },
+            {
+                title: "大垃圾袋",
+                category: "物件名目",
+                description: "用于与垃圾桶配套的装垃圾袋子",
+                link: "items-cleaning.html"
+            },
+            {
+                title: "平板拖把",
+                category: "物件名目",
+                description: "免洗，手上有机关可以清洁拖把面。可用于清洁地面",
+                link: "items-cleaning.html"
+            },
+            // 物件名目 - 卫浴类
+            {
+                title: "热水器",
+                category: "物件名目",
+                description: "电热水器、燃气热水器等类型，用于提供热水",
+                link: "items-bathroom.html"
+            },
+            {
+                title: "花洒",
+                category: "物件名目",
+                description: "手持花洒、顶喷花洒等类型，用于淋浴",
+                link: "items-bathroom.html"
+            },
+            {
+                title: "洗护套装",
+                category: "物件名目",
+                description: "溪木源的洗护套装，包括洗面奶、精华水、精华乳",
+                link: "items-bathroom.html"
+            },
+            // 通勤
+            {
+                title: "通勤准备",
+                category: "通勤",
+                description: "出门必带物品和准备工作",
+                link: "commute.html"
+            },
+            {
+                title: "天气应对",
+                category: "通勤",
+                description: "不同天气的通勤准备",
+                link: "commute.html"
+            },
+            // 物件收纳
+            {
+                title: "衣物收纳",
+                category: "物件收纳",
+                description: "衣物的收纳技巧和方法",
+                link: "storage.html"
+            },
+            {
+                title: "厨房收纳",
+                category: "物件收纳",
+                description: "厨房用品的收纳技巧和方法",
+                link: "storage.html"
+            }
+        ];
+
+        // 搜索功能
+        const searchInput = document.getElementById('search-input');
+        const searchForm = document.getElementById('search-form');
+        const searchSuggestions = document.getElementById('search-suggestions');
+        const searchResultsModal = document.getElementById('search-results-modal');
+        const searchResultsList = document.getElementById('search-results-list');
+        const closeModal = document.querySelector('.close');
+
+        // 搜索建议
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            if (query.length < 2) {
+                searchSuggestions.classList.remove('show');
+                return;
+            }
+
+            const filteredResults = searchData.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.description.toLowerCase().includes(query) ||
+                       item.category.toLowerCase().includes(query);
+            });
+
+            if (filteredResults.length > 0) {
+                searchSuggestions.innerHTML = filteredResults.map(item => {
+                    let displayText = '';
+                    if (item.category === '功能块') {
+                        if (item.title === '物件名目' || item.title === '食谱' || item.title === '物件收纳' || item.title === '通勤') {
+                            displayText = `${item.title}`;
+                        } else if (['数码类', '卧室类', '衣物类', '厨房类', '清洁类', '卫浴类'].includes(item.title)) {
+                            displayText = `物件名目-${item.title}`;
+                        } else if (['家常菜', '早餐'].includes(item.title)) {
+                            displayText = `食谱-${item.title}`;
+                        }
+                    } else {
+                        if (item.category === '物件名目') {
+                            if (['手机', '平板', '电脑'].includes(item.title)) {
+                                displayText = `物件名目-数码类-${item.title}`;
+                            } else if (['床上用品', '衣柜', '床头柜'].includes(item.title)) {
+                                displayText = `物件名目-卧室类-${item.title}`;
+                            } else if (['普通衣架', '承重衣架', '洗衣液'].includes(item.title)) {
+                                displayText = `物件名目-衣物类-${item.title}`;
+                            } else if (['碗碟', '电饭煲', '调料品'].includes(item.title)) {
+                                displayText = `物件名目-厨房类-${item.title}`;
+                            } else if (['垃圾桶', '大垃圾袋', '平板拖把'].includes(item.title)) {
+                                displayText = `物件名目-清洁类-${item.title}`;
+                            } else if (['热水器', '花洒', '洗护套装'].includes(item.title)) {
+                                displayText = `物件名目-卫浴类-${item.title}`;
+                            }
+                        } else if (item.category === '食谱') {
+                            displayText = `食谱-${item.title}`;
+                        } else if (item.category === '通勤') {
+                            displayText = `通勤-${item.title}`;
+                        } else if (item.category === '物件收纳') {
+                            displayText = `物件收纳-${item.title}`;
+                        }
+                    }
+                    return `<div class="search-suggestion-item" data-link="${item.link}">${displayText}</div>`;
+                }).join('');
+                searchSuggestions.classList.add('show');
+            } else {
+                searchSuggestions.classList.remove('show');
+            }
+        });
+
+        // 点击搜索建议项
+        searchSuggestions.addEventListener('click', function(e) {
+            if (e.target.classList.contains('search-suggestion-item')) {
+                const link = e.target.getAttribute('data-link');
+                window.location.href = link;
+            }
+        });
+
+        // 点击页面其他地方关闭搜索建议
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+                searchSuggestions.classList.remove('show');
+            }
+        });
+
+        // 搜索表单提交
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = searchInput.value.toLowerCase();
+            if (query.length < 1) return;
+
+            const results = searchData.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.description.toLowerCase().includes(query) ||
+                       item.category.toLowerCase().includes(query);
+            });
+
+            displayResults(results, query);
+            searchResultsModal.classList.add('show');
+        });
+
+        // 显示搜索结果
+        function displayResults(results, query) {
+            if (results.length > 0) {
+                searchResultsList.innerHTML = results.map(item => {
+                    return `
+                        <div class="search-result-item">
+                            <span class="category">${item.category}</span>
+                            <h4>${item.title}</h4>
+                            <p>${item.description}</p>
+                            <a href="${item.link}">查看详情</a>
+                        </div>
+                    `;
+                }).join('');
+            } else {
+                searchResultsList.innerHTML = `
+                    <div class="no-results">
+                        <h4>没有找到相关内容</h4>
+                        <p>请尝试其他关键词</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            searchResultsModal.classList.remove('show');
+        });
+
+        // 点击模态框外部关闭
+        window.addEventListener('click', function(e) {
+            if (e.target === searchResultsModal) {
+                searchResultsModal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
